@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_from_directory, jsonify, redirect, url_for
+from flask import Flask, request, render_template, send_from_directory, redirect, url_for
 import os
 
 app = Flask(__name__)
@@ -23,7 +23,6 @@ def download(content_id):
 def uploaded_file(filename):
     return send_from_directory(UPLOAD_FOLDER, filename)
 
-# Admin page (no authentication for simplicity)
 @app.route('/admin')
 def admin():
     return render_template('admin.html', content=uploaded_content)
@@ -42,4 +41,6 @@ def upload():
     return redirect(url_for('admin'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Let deployment platforms set the host/port via environment variables
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
