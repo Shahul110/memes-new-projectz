@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input[type="text"], input[type="file"] {
+  padding: 8px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  background: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+a.download {
+  display: inline-block;
+  margin-top: 5px;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.item {
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+video {
+  border-radius: 4px;
+}

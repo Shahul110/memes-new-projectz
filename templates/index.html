@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Memes & Videos Download</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Download Memes & Videos</h1>
+  <div class="gallery">
+    {% for cid, fname in content.items() %}
+      <div class="item">
+        {% if fname.endswith('.mp4') or fname.endswith('.webm') or fname.endswith('.ogg') %}
+          <video controls width="250">
+            <source src="{{ url_for('uploaded_file', filename=fname) }}" type="video/mp4">
+            Your browser does not support video.
+          </video>
+        {% else %}
+          <img src="{{ url_for('uploaded_file', filename=fname) }}" alt="{{ cid }}">
+        {% endif %}
+        <a class="download" href="{{ url_for('download', content_id=cid) }}">Download</a>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
